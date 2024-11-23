@@ -4,16 +4,19 @@ from markupsafe import escape
 app = Flask(__name__)
 
 @app.route('/')
-def login():
-    return render_template('login.html')
+def lindex():
+    return render_template('index.html')
 
 
 @app.route('/about')
 def about():
     return render_template('about.html')
 
-@app.route('/contact')
-def contact():
+@app.route('/login', methods=['GET','POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
     return render_template('contact.html')
 
 if __name__ == '__main__':
