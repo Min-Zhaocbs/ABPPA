@@ -1,14 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* 设置页面背景图片 */
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('/static/bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* 外部容器样式 */
+        .content {
+            background: rgba(0, 0, 0, 0.6); /* 半透明背景 */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        /* 表单和输入框样式 */
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* 返回链接样式 */
+        a {
+            color: #3498db;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 列表样式 */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
 <body>
-    <h1>contact Page</h1>
-    <form action="/great" method="POST">
-        <label for="Product Name">Product name:</label>
-        <input type="text" id="Product Name" name="Product Name" required>
-        <br>
-        <button type="submit">get</button>
-    </form>
+    <div class="content">
+        <h1>Product Info Query</h1>
+<!--        from 表单-->
+        <form method="post">
+            <label for="product_name">Please input product name:</label>
+            <input type="text" id="product_name" name="product_name" required>
+            <button type="submit">Query</button>
+        </form>
+
+        {% if product_info %}
+        <h2>{{ product_info }}</h2>
+        {% if manufacturers_of_fruit %}
+        <ul>
+            {% for manufacturer in manufacturers_of_fruit %}
+            <li>{{ manufacturer }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endif %}
+
+        <a href="{{ url_for('index') }}">Back to home.</a>
+    </div>
 </body>
-
-
 </html>
