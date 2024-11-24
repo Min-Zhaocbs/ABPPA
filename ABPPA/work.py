@@ -1,5 +1,4 @@
-from flask import Flask, url_for, request, render_template, jsonify
-from markupsafe import escape
+from flask import Flask, url_for, request, render_template, redirect
 
 app = Flask(__name__)
 
@@ -20,7 +19,7 @@ def login():
         if username == username and password == password:
             return redirect(url_for('dashboard'))
     
-    return render_template('contact.html')
+    return render_template('login.html')
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
