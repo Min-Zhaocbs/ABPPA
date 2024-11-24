@@ -5,3 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
     <style>
+ body {margin: 0;
+              padding: 0;
+              background: url_for('/static/bg.jpg') no-repeat center center fixed;
+              background-size: cover;
+              font-family: Arial, sans-serif;
+              color: black;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              text-align: center;}
+
+        a {color: #3498db;
+           text-decoration: none;
+           font-size: 18px;}
+
+        a:hover { text-decoration: underline;}
+
+        ul {list-style: none;
+            padding: 0;
+            margin: 20px 0 0;}
+
+        li {margin: 20px 0;}
+
+        h1 {font-family: 'Shrikhand';
+            color: black;
+            margin-bottom: 40px;}
+
+        h2 {margin-bottom: 20px;}
+
+        p {margin-bottom: 20px;
+           font-size: 18px;
+           max-width: 800px;
+           word-wrap: break-word;}
+    </style>
+</head>
+<body>
+    <div>
+        <h1>About</h1>
+        <h2>now</h2>
+        <p>Welcome to our Agricultural Product Query System! This is an intelligent platform specially designed for the agricultural industry, dedicated to helping users quickly find sales information for different agricultural products. Through our system, users can simply input the name of the agricultural product and query related enterprise information, including which companies are selling the product, their prices, supply areas, and more. Whether you are an agricultural producer, wholesaler, or consumer, you can quickly access accurate market information about agricultural products through this platform.
+        </p>
+        <h2>future</h2>
+        <p>Our agricultural product query system aims to become the core platform for the digitalization and informatization of the agricultural industry through continuous expansion and optimization of its features. In the future, we will increase data sources, expand the range of agricultural products, develop an intelligent recommendation system, introduce enterprise ratings and reviews, support multi-language services, and launch a mobile app to enhance the user experience. Our goal is to facilitate direct connections between agricultural enterprises and consumers, improve market transparency, optimize the agricultural supply chain, reduce waste, and support sustainable agricultural development, promoting green agriculture and ecological civilization.
+        </p>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Back to Home</a></li>
+        </ul>
+    </div>
+</body>
+</html>
