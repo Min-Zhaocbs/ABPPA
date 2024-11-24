@@ -21,6 +21,12 @@ def login():
     
     return render_template('login.html')
 
+FRUIT_MANUFACTURER_DATABASE = {
+    "apple": ["Apple Orchard Inc.", "Tropical Banana Farms"],
+    "banana": ["Tropical Banana Farms", "Dairy Delight Ltd."],
+    "carrot": ["Fresh Veggie Co."],
+    "milk": ["Dairy Delight Ltd."],}
+
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
     product_info = None
@@ -28,8 +34,13 @@ def dashboard():
     manufacturers_of_fruit = None
     if request.method == 'POST':
         product_name = request.form['product_name'].lower()
-    
-    return render_template('dashboard.html')
+        if product_name in FRUIT_MANUFACTURER_DATABASE:
+            manufacturers_of_fruit = FRUIT_MANUFACTURER_DATABASE.get(product_name)
+            product_info = f"{product_name.capitalize()} is produced by the following manufacturers:"
+        else:
+            product_info = "Product not found."
+
+    return render_template('dashboard.html', product_info=product_info, manufacturers_of_fruit=manufacturers_of_fruit)
 
 
 if __name__ == '__main__':
