@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <title>Login</title>
     <style>
-
-        
         h1 {
             font-size: 60px;
             margin-bottom: 20px;
-            color: white;
-        }
-        
+            color: white;}
+
         body {
             margin: 0;
             padding: 0;
@@ -23,30 +21,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-        }
+            text-align: center;}
 
-       
         form {
             margin-top: 20px;
             display: flex;
-            flex-direction: column; 
+            flex-direction: column;
             align-items: center;
-            color: white;
-        }
+            color: white;}
 
         .form-row {
-            display: flex; 
+            display: flex;
             align-items: center;
-            margin-bottom: 40px; 
-        }
+            margin-bottom: 40px;}
 
         label {
             margin-right: 30px;
             font-size: 18px;
             min-width: 120px;
-            text-align: right;
-        }
+            text-align: right;}
 
         input {
             width: 400px;
@@ -55,10 +48,8 @@
             border: none;
             border-radius: 5px;
             border-color: #c6a969;
-            color:black;            ;
-        }
+            color: black;}
 
-        
         button {
             width: 200px;
             padding: 20px;
@@ -67,25 +58,20 @@
             color: black;
             font-size: 20px;
             border-radius: 5px;
-            cursor: pointer;
-        }
+            cursor: pointer;}
 
-       
-
-       
         a {
             color: #3498db;
             text-decoration: none;
             margin-top: 20px;
             display: inline-block;
-            font-size: 18px;
-        }
+            font-size: 18px;}
 
         a:hover {
-            text-decoration: underline;
-        }
+            text-decoration: underline;}
     </style>
 </head>
+
 <body>
     <div>
         <h1>Login Page</h1>
@@ -100,7 +86,7 @@
             </div>
             <button type="submit">Login</button>
         </form>
-        <a href="{{ url_for('index') }}">Back to home.</a>
+        <a href="{{ url_for('Index') }}">Back to home.</a>
     </div>
 </body>
 </html>
